@@ -39,11 +39,39 @@
                 </li>
             </ul>
         </div>
+
         <div class="col-10 col-ml-auto px-2">
             <h1 class="text-center d-block mt-3">Spectre.css - JavaScript components</h1>
 
-            <div class="text-right">
-                <em>Created by Artem Manchenkov</em>
+            <ul class="my-5">
+                <li>возможность перемещения ползунков</li>
+                <li>если один: задаем числовой input (number)</li>
+                <li>если два: указываем input на диапазон (посмотреть доки, либо просто два значения)</li>
+                <li>установка значений через JS (setStart, setEnd, setValues)</li>
+                <li>вывести значения над кнопкой ползунка</li>
+            </ul>
+
+            <div class="p-2">
+                <!-- normal slider -->
+                <div class="py-3">
+                    <div class="bar bar-slider" data-slider>
+                        <div class="bar-item" role="progressbar" style="width: 20%">
+                            <button class="bar-slider-btn btn" role="slider"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- range slider -->
+                <div class="py-3">
+                    <div class="bar bar-slider" data-slider>
+                        <div class="bar-item" role="progressbar" style="width:20%;">
+                            <button class="bar-slider-btn btn" role="slider"></button>
+                        </div>
+                        <div class="bar-item" role="progressbar" style="width:40%;">
+                            <button class="bar-slider-btn btn" role="slider"></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

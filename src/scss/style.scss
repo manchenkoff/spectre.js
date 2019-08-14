@@ -1,0 +1,19 @@
+/*!
+ * Created by Artyom Manchenkov
+ * artyom@manchenkoff.me
+ * manchenkoff.me © 2019
+ */
+
+@import "../../node_modules/spectre.css/src/spectre";
+
+@include margin-variant(3, $unit-4);
+@include margin-variant(4, $unit-8);
+@include margin-variant(5, $unit-16);
+@include padding-variant(3, $unit-4);
+@include padding-variant(4, $unit-8);
+@include padding-variant(5, $unit-16);
+
+.ui-menu {
+  min-height: 100vh;
+  padding: .2rem;
+}
