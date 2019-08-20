@@ -7,22 +7,21 @@
 import Widget from '../classes/widget'
 
 /**
+ * Chips component
  * @property {string[]} chips
  * @property {HTMLFormElement} input
  * @property {HTMLElement} chipsBlock
  */
 export default class Chips extends Widget {
     /**
-     * Chips widget query selector
-     * @returns {string}
+     * @inheritDoc
      */
     static get selector() {
         return '[data-chips]';
     }
 
     /**
-     * Current widget class name
-     * @returns {Chips}
+     * @inheritDoc
      */
     static get class() {
         return Chips;
@@ -41,7 +40,7 @@ export default class Chips extends Widget {
     }
 
     /**
-     * Initializes a widget
+     * @inheritDoc
      */
     init() {
         this.chips = [];

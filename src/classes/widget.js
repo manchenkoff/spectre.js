@@ -119,7 +119,7 @@ export default class Widget {
     }
 
     /**
-     * Base initialize method for child classes
+     * Widget base initialization
      */
     init() {
         console.error('init() method not implemented yet');
