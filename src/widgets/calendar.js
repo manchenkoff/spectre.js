@@ -7,12 +7,12 @@
 import Widget from '../classes/widget'
 
 export default class Calendar extends Widget {
-    static register() {
-        document
-            .querySelectorAll('[data-calendar]')
-            .forEach((elem) => {
-                new Slider(elem);
-            })
+    static get selector() {
+        return '[data-calendar]';
+    }
+
+    static get class() {
+        return Calendar;
     }
 
     init() {

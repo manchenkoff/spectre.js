@@ -7,12 +7,12 @@
 import Widget from '../classes/widget'
 
 export default class Toast extends Widget {
-    static register() {
-        document
-            .querySelectorAll('[data-toast]')
-            .forEach((elem) => {
-                new Slider(elem);
-            })
+    static get selector() {
+        return '[data-toast]';
+    }
+
+    static get class() {
+        return Toast;
     }
 
     init() {

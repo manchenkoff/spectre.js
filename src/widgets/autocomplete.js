@@ -7,12 +7,12 @@
 import Widget from '../classes/widget'
 
 export default class Autocomplete extends Widget {
-    static register() {
-        document
-            .querySelectorAll('[data-autocomplete]')
-            .forEach((elem) => {
-                new Slider(elem);
-            })
+    static get selector() {
+        return '[data-autocomplete]';
+    }
+
+    static get class() {
+        return Autocomplete;
     }
 
     init() {

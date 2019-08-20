@@ -21,11 +21,15 @@ window.Spectre = {
     Toast
 };
 
+function init() {
+    Object
+        .getOwnPropertyNames(Spectre)
+        .forEach((className) => {
+            Spectre[className].register();
+        });
+}
+
+// FIXME: сделать module.exports после разработки
 window.onload = () => {
-    Autocomplete.register();
-    Calendar.register();
-    Chips.register();
-    Slider.register();
-    Tabs.register();
-    Toast.register();
+    init();
 };

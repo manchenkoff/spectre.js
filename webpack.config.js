@@ -4,6 +4,9 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const pages = require('./pug/config');
 
 /**
  * Base webpack configuration
@@ -22,12 +25,17 @@ module.exports = (env, argv) => {
         // entry files to compile (relative to the base dir)
         entry: [
             "./app.js",
-            "./scss/style.scss",
+            "./style.scss",
         ],
 
         // enable development source maps
         // * will be overwritten by 'source-maps' in production mode
         devtool: "inline-source-map",
+
+        // live dev server root directory
+        devServer: {
+            contentBase: "dist"
+        },
 
         // path to store compiled JS bundle
         output: {
@@ -54,6 +62,16 @@ module.exports = (env, argv) => {
                 pngquant: {quality: '70-85'},
                 optipng: {optimizationLevel: 9}
             }),
+
+            // compiles PUG templates
+            ...pages.map((page) => {
+                return new HtmlWebpackPlugin({
+                    filename: `${page}.html`,
+                    template: `../pug/pages/${page}.pug`,
+                    inject: false,
+                    minify: false,
+                })
+            }),
         ],
 
         // production mode optimization
@@ -67,6 +85,11 @@ module.exports = (env, argv) => {
         // custom loaders configuration
         module: {
             rules: [
+                // pug loader
+                {
+                    test: /\.pug$/,
+                    use: ['pug-loader'],
+                },
                 // styles loader
                 {
                     test: /\.(sa|sc|c)ss$/,

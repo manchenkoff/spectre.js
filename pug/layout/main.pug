@@ -1,0 +1,20 @@
+doctype html
+html(lang='en')
+
+    head
+        meta(charset='utf-8')
+        title Spectre.js App
+        link(rel='stylesheet' href='/css/style.css')
+        link(rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css')
+
+    body
+        .container
+            .columns
+                .col-2.bg-gray.p-fixed.ui-menu
+                    include navbar
+
+                .col-10.col-ml-auto.px-2
+                    .p-4
+                        block content
+
+        script(src='/js/spectre.js')

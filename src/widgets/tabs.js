@@ -7,12 +7,12 @@
 import Widget from '../classes/widget'
 
 export default class Tabs extends Widget {
-    static register() {
-        document
-            .querySelectorAll('[data-tabs]')
-            .forEach((elem) => {
-                new Slider(elem);
-            })
+    static get selector() {
+        return '[data-tabs]';
+    }
+
+    static get class() {
+        return Tabs;
     }
 
     init() {
