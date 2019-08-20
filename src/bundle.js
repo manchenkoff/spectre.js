@@ -29,7 +29,6 @@ function init() {
         });
 }
 
-// FIXME: сделать module.exports после разработки
 window.onload = () => {
     init();
 };

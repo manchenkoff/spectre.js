@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Spectre.js App</title><link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css"></head><body><div class="container"><div class="columns"><div class="col-2 bg-gray p-fixed ui-menu"><ul class="nav"><li class="nav-item active"><a href="/">Home</a></li><li class="nav-item"><a>Examples</a><ul class="nav"><li class="nav-item"><a href="/chips.html">Chips</a></li><li class="nav-item"><a href="/tabs.html">Tabs</a></li><li class="nav-item"><a href="/toasts.html">Toasts</a></li><li class="nav-item"><a href="/auto-complete.html">Auto-complete</a></li><li class="nav-item"><a href="/calendar.html">Calendar</a></li><li class="nav-item"><a href="/slider-bar.html">Slide-bar</a></li></ul></li></ul></div><div class="col-10 col-ml-auto px-2"><div class="p-4"><h1 class="text-center mb-4">Chips</h1><h3>Description</h3><p>This input combines chip values to the string like <code>first,second,third</code> and put in into hidden input (see code)</p><h3 class="mt-5">Simple input</h3><p>To create <code>chip</code> input just paste following code as is</p><pre class="code" data-lang="HTML"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-input"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"users"</span> <span class="hljs-attr">data-chips</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre><h5>Result</h5><div class="form-group"><input class="form-input" type="text" name="users" placeholder="first, second, third" data-chips><div class="form-input-hint">Values will be split after you type ',' or press Enter</div></div><h3 class="mt-5">Configuration</h3><p>You can change default configuration by passing params into <code>register()</code> method</p><h5>Example</h5><pre class="code" data-lang="JS"><code><span class="hljs-keyword">let</span> querySelector = <span class="hljs-string">'[data-chips]'</span>; <span class="hljs-comment">// may be 'false'</span>
+
+<span class="hljs-keyword">let</span> config = {
+    <span class="hljs-attr">containerClasses</span>: [<span class="hljs-string">'mb-3'</span>],
+    <span class="hljs-attr">submitByEnter</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">submitByComma</span>: <span class="hljs-literal">true</span>,
+};
+
+Spectre.Chips.register(querySelector, config); <span class="hljs-comment">// initializes components on the page</span>
+
+</code></pre><h3 class="mt-5">Methods</h3><p>Here you can find a short descriptions for widget methods</p><h6><code>Chips.get(querySelector)</code></h6><p>Returns a widget instance by query selector</p><pre class="mb-5 code" data-lang="JS"><code><span class="hljs-keyword">let</span> chip = Spectre.Chips.get(<span class="hljs-string">'#selector'</span>);
+
+chip.log();
+</code></pre><h6><code>instance.add(value)</code></h6><p>Adds a new chip value</p><pre class="mb-5 code" data-lang="JS"><code><span class="hljs-keyword">let</span> chip = Spectre.Chips.get(<span class="hljs-string">'#selector'</span>);
+
+chip.add(<span class="hljs-string">'new chip value'</span>);
+</code></pre><h6><code>instance.delete(value)</code></h6><p>Removes a chip by value</p><pre class="mb-5 code" data-lang="JS"><code><span class="hljs-keyword">let</span> chip = Spectre.Chips.get(<span class="hljs-string">'#selector'</span>);
+
+chip.delete(<span class="hljs-string">'old chip value'</span>);</code></pre></div></div></div></div><script src="/assets/docs.js"></script></body></html>

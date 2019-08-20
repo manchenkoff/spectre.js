@@ -23,10 +23,14 @@ module.exports = (env, argv) => {
         context: path.resolve(__dirname, "src"),
 
         // entry files to compile (relative to the base dir)
-        entry: [
-            "./app.js",
-            "./style.scss",
-        ],
+        entry: {
+            'spectre': "./index.js",
+            'spectre.bundle': "./bundle.js",
+            'docs': [
+                "./docs/app.js",
+                "./docs/style.scss",
+            ],
+        },
 
         // enable development source maps
         // * will be overwritten by 'source-maps' in production mode
@@ -34,13 +38,19 @@ module.exports = (env, argv) => {
 
         // live dev server root directory
         devServer: {
-            contentBase: "dist"
+            contentBase: "docs"
         },
 
         // path to store compiled JS bundle
         output: {
             // bundle relative name
-            filename: "js/spectre.js",
+            filename: (bundle) => {
+                let id = bundle.chunk.id;
+
+                return (id !== 'docs')
+                    ? "[name].js"
+                    : "../docs/assets/[name].js";
+            },
             // base build directory
             path: path.resolve(__dirname, "dist"),
             // path to build relative asset links
@@ -51,7 +61,7 @@ module.exports = (env, argv) => {
         plugins: [
             // save compiled SCSS into separated CSS file
             new MiniCssExtractPlugin({
-                filename: "css/style.css"
+                filename: "../docs/assets/style.css"
             }),
 
             // image optimization
@@ -66,7 +76,7 @@ module.exports = (env, argv) => {
             // compiles PUG templates
             ...pages.map((page) => {
                 return new HtmlWebpackPlugin({
-                    filename: `${page}.html`,
+                    filename: `../docs/${page}.html`,
                     template: `../pug/pages/${page}.pug`,
                     inject: false,
                     minify: false,
