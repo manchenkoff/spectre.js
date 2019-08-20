@@ -4,11 +4,11 @@ Spectre.js - JavaScript components logic for Spectre.css framework
 
 ### Installation
 
-WIP ...
+...
 
 ### Usage
 
-WIP ...
+...
 
 ### Tasks
 
