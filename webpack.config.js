@@ -45,7 +45,7 @@ module.exports = (env, argv) => {
         output: {
             // bundle relative name
             filename: (bundle) => {
-                let id = bundle.chunk.id;
+                let id = bundle.chunk.name;
 
                 return (id !== 'docs')
                     ? "[name].js"
