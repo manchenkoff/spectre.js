@@ -48,7 +48,7 @@ export default class Toast extends Widget {
 
         setTimeout(() => {
             this.element.remove();
-        }, 300);
+        }, 290);
     }
 
     /**
@@ -111,7 +111,7 @@ export default class Toast extends Widget {
 
             setTimeout(() => {
                 toast.remove();
-            }, 300);
+            }, 290);
         };
 
         // create the close button

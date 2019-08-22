@@ -24,25 +24,41 @@ block content
         input.form-input(type='text' name='users' placeholder='first, second, third' data-chips)
         .form-input-hint Values will be split after you type ',' or press Enter
 
-    h3.mt-5 Configuration
+    p.mt-5 Another example with submitting only by #[code Enter]
 
-    p You can change default configuration by passing params into #[code register()] method
-
-    h5 Example
-
-    pre.code(data-lang="JS")
+    pre.code(data-lang='HTML')
         code
-            :highlight(lang='js')
-                let querySelector = '[data-chips]'; // may be 'false'
+            :highlight(lang='html')
+                <div class="form-group">
+                    <input class="form-input" type="text" name="users" data-chips data-chips-comma="false">
+                </div>
 
-                let config = {
-                    containerClasses: ['mb-3'],
-                    submitByEnter: true,
-                    submitByComma: true,
-                };
+    h5 Result
 
-                Spectre.Chips.register(querySelector, config); // initializes components on the page
+    .form-group
+        input.form-input(type='text' name='users' placeholder='first, second, third' data-chips data-chips-comma="false")
+        .form-input-hint Values will be split after you press Enter
 
+    p.mt-5 Another example with custom chips & container classes
+
+        pre.code(data-lang='HTML')
+            code
+                :highlight(lang='html')
+                    <div class="form-group">
+                        <input class="form-input" type="text" name="users" data-chips data-chips-container-classes='["py-5", "px-2", "bg-primary"]'>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-input" type="text" name="users" data-chips data-chips-classes='["bg-primary"]'>
+                    </div>
+
+        h5 Result
+
+        .form-group
+            input.form-input(type='text' name='users' placeholder='first, second, third' data-chips data-chips-container-classes='["py-5", "px-2", "bg-primary"]' data-chips-classes='["bg-dark"]')
+
+        .form-group
+            input.form-input(type='text' name='users' placeholder='first, second, third' data-chips data-chips-classes='["bg-primary"]')
 
     h3.mt-5 Methods
 

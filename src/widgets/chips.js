@@ -11,6 +11,7 @@ import Widget from '../classes/widget'
  * @property {string[]} chips
  * @property {HTMLFormElement} input
  * @property {HTMLElement} chipsBlock
+ * @property {object} config
  */
 export default class Chips extends Widget {
     /**
@@ -28,26 +29,31 @@ export default class Chips extends Widget {
     }
 
     /**
-     * Returns Chips widget configuration
-     * @returns {{submitByEnter: boolean, containerClasses: string[], submitByComma: boolean}}
-     */
-    get defaultConfig() {
-        return {
-            containerClasses: ['mb-3'],
-            submitByEnter: true,
-            submitByComma: true,
-        };
-    }
-
-    /**
      * @inheritDoc
      */
     init() {
         this.chips = [];
 
+        this._buildConfig();
+
         this._buildContainer();
 
         this._buildInput();
+    }
+
+    /**
+     * Builds widget configuration
+     * @private
+     */
+    _buildConfig() {
+        this.config = {
+            chipsEnter: true,
+            chipsComma: true,
+            chipsClasses: [],
+            chipsContainerClasses: ['mb-3'],
+        };
+
+        this.loadDataParams(this.config);
     }
 
     /**
@@ -58,7 +64,7 @@ export default class Chips extends Widget {
         this.chipsContainer = document.createElement('div');
 
         this.chipsContainer.classList.add(
-            this.config.containerClasses
+            ...this.config.chipsContainerClasses
         );
 
         this.element.parentElement.prepend(this.chipsContainer);
@@ -77,11 +83,15 @@ export default class Chips extends Widget {
         this.element.parentElement.append(this.input);
 
         this.element.onkeyup = (event) => {
-            let useComma = (event.code === "Comma" && this.config.submitByComma);
-            let useEnter = (event.code === "Enter" && this.config.submitByEnter);
+            let useComma = (event.key === "," && this.config.chipsComma);
+            let useEnter = (event.key === "Enter" && this.config.chipsEnter);
 
             if (useComma || useEnter) {
-                let content = event.target.value.replace(',', '');
+                let content = event.target.value;
+
+                if (useComma) {
+                    content = content.replace(',', '');
+                }
 
                 this.add(content);
 
@@ -103,6 +113,10 @@ export default class Chips extends Widget {
         chip.classList.add('chip');
         chip.innerText = label;
         chip.dataset.chip = label;
+
+        if (this.config.chipsClasses.length > 0) {
+            chip.classList.add(...this.config.chipsClasses);
+        }
 
         // close button
         let closeButton = document.createElement('a');

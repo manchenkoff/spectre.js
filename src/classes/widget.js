@@ -13,18 +13,30 @@ export default class Widget {
     /**
      * Base widget constructor
      * @param element
-     * @param config
      */
-    constructor(element, config = {}) {
+    constructor(element) {
         // remember HTML element
         this.element = element;
-
-        // merge widget configuration
-        this._buildConfig(config);
 
         // call implemented methods
         this.init();
         this.log();
+    }
+
+    /**
+     * Merges widget configuration by loading data-* params
+     * @param params
+     */
+    loadDataParams(params) {
+        let data = Object.getOwnPropertyNames(params);
+
+        data.forEach(
+            (key) => {
+                if (key in this.element.dataset) {
+                    params[key] = JSON.parse(this.element.dataset[key]);
+                }
+            }
+        );
     }
 
     /**
@@ -48,11 +60,10 @@ export default class Widget {
     }
 
     /**
-     * Automatic registers widgets on the page by query selector and config
+     * Automatic registers widgets on the page by query selector
      * @param selector
-     * @param config
      */
-    static register(selector = false, config = {}) {
+    static register(selector = false) {
         // initialize an instances list
         this.class["instances"] = [];
 
@@ -67,7 +78,7 @@ export default class Widget {
             .forEach((elem) => {
                 this.class["instances"].push(
                     // creates a new instance of the widget
-                    new this.class(elem, config)
+                    new this.class(elem)
                 );
             })
     }
@@ -85,30 +96,6 @@ export default class Widget {
                 return widget.element === element;
             }
         );
-    }
-
-    /**
-     * Returns default widget configuration
-     * @returns {{}}
-     */
-    get defaultConfig() {
-        return {
-            // config params
-        };
-    }
-
-    /**
-     * Merges widget configuration with default and user params
-     * @param config
-     * @private
-     */
-    _buildConfig(config) {
-        if (config) {
-            this.config = {
-                ...this.defaultConfig,
-                ...config
-            };
-        }
     }
 
     /**
