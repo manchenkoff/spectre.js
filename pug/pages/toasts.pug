@@ -1,7 +1,83 @@
 extends ../layout/main
 
 block content
-    ul.my-5
-        li закрытие уведомление по нажатию иконки
-        li показ уведомлений сбоку через Toasts.info('Title', 'Content') или Toasts.error()...
-        li автоматическое скрытие если не закрыл через 3 секунды (возможность настраиать)
+    h1.text-center.mb-4 Toasts
+
+        h3 Description
+
+        p
+        | This widget allows to #[code close] toast by click on the button
+        | and show notification by #[code .info()], #[code .error()] etc methods
+
+        h3.mt-5 Simple alert
+
+        p To create #[code toast] widget just paste following code as is
+
+        pre.code(data-lang='HTML')
+            code
+                :highlight(lang='html')
+                    <div class="toast toast-primary" data-toast>
+                        <button class="btn btn-clear float-right"></button>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+
+        h5 Result
+
+        .toast.toast-primary(data-toast)
+            button.btn.btn-clear.float-right
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+        h3.mt-5 Show notifications
+
+        p If you want to show notification you may use the following code example in your JS file
+
+        pre.code(data-lang='JavaScript')
+            code
+                :highlight(lang='javascript')
+                    Spectre.Toast.info('Content of the toast');
+                    Spectre.Toast.info('Content of the toast', 'Toast title');
+
+        .btn-group
+            button.btn.btn-primary(onclick="Spectre.Toast.info('Content of the toast')") Demo
+            button.btn.btn-primary(onclick="Spectre.Toast.info('Content of the toast', 'Toast title')") Demo
+
+        p.mt-3 Also, you may use custom types of notification
+
+        pre.code(data-lang='JavaScript')
+            code
+                :highlight(lang='javascript')
+                    Spectre.Toast.error('Some error')
+                    Spectre.Toast.success('All is fine')
+                    Spectre.Toast.warning('Warning content')
+
+        .btn-group
+            button.btn.btn-error(onclick="Spectre.Toast.error('Some error')") Error
+            button.btn.btn-success(onclick="Spectre.Toast.success('All is fine')") Success
+            button.btn.btn-primary(onclick="Spectre.Toast.warning('Warning content')") Warning
+
+        h3.mt-5 Configuration
+
+        p All toasts supports custom parameters in methods and you can change the following values
+
+        pre.code(data-lang='JavaScript')
+            code
+                :highlight(lang='javascript')
+                    Spectre.Toast.show({
+                        title: 'Test toast',
+                        message: 'Simple toast text message',
+                        type: 'primary',
+                        timeout: 3000,
+                        autoClose: true,
+                    });
+
+                    // or
+
+                    Spectre.Toast.error(
+                        'Error message',
+                        'Error title',
+                        {autoClose: false}
+                    );
+
+        .btn-group
+            button.btn.btn-primary(onclick="Spectre.Toast.show({title: 'Test toast',message: 'Simple toast text message',type: 'primary',timeout: 3000,autoClose: true,});") Show
+            button.btn.btn-error(onclick="Spectre.Toast.error('Error message','Error title',{autoClose: false});") Error
