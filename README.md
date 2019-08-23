@@ -24,7 +24,7 @@ npm i spectre.css-js
 After package installation you may use Spectre.js by two methods:
 
 - Include components with automatic registration (`dist/spectre.bundle.js`)
-- Import classes and register only necessary for your project (`dist/spectre.bundle.js` or `src/spectre.js`)
+- Import classes and register only necessary for your project (`dist/spectre.js` or `src/spectre.js`)
 
 ### Tasks
 
