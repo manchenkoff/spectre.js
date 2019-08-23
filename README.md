@@ -16,23 +16,15 @@ See [docs](https://manchenkoff.github.io/spectre.js/) for the details
 You have to run following command to add a dependency to your project
 
 ```
-npm i @manchenkoff/spectre-js
+npm i spectre.css-js
 ```
 
 ### Usage
 
 After package installation you may use Spectre.js by two methods:
 
-- Include components with automatic registration
-
-```javascript
-Examples will be soon...
-```
-
-- Import classes and register only necessary for your project
-```javascript
-Examples will be soon...
-```
+- Include components with automatic registration (`dist/spectre.bundle.js`)
+- Import classes and register only necessary for your project (`dist/spectre.bundle.js` or `src/spectre.js`)
 
 ### Tasks
 
