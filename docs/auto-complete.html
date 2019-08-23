@@ -1,1 +1,94 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Spectre.js App</title><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css"></head><body><div class="container"><div class="columns"><div class="col-2 bg-gray p-fixed ui-menu"><ul class="nav"><li class="nav-item active"><a href="index.html">Home</a></li><li class="nav-item"><a>Examples</a><ul class="nav"><li class="nav-item"><a href="chips.html">Chips</a></li><li class="nav-item"><a href="tabs.html">Tabs</a></li><li class="nav-item"><a href="toasts.html">Toasts</a></li><li class="nav-item"><a href="auto-complete.html">Auto-complete</a></li><li class="nav-item"><a href="calendar.html">Calendar</a></li><li class="nav-item"><a href="slider-bar.html">Slide-bar</a></li></ul></li></ul></div><div class="col-10 col-ml-auto px-2"><div class="p-4"><ul class="my-5"><li>показ подсказок по мере заполнения</li><li>загрузка данных из JSON</li></ul></div></div></div></div><script src="assets/docs.js"></script></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Spectre.js App</title><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css"></head><body><div class="container"><div class="columns"><div class="col-2 bg-gray p-fixed ui-menu"><ul class="nav"><li class="nav-item active"><a href="index.html">Home</a></li><li class="nav-item"><a>Examples</a><ul class="nav"><li class="nav-item"><a href="chips.html">Chips</a></li><li class="nav-item"><a href="tabs.html">Tabs</a></li><li class="nav-item"><a href="toasts.html">Toasts</a></li><li class="nav-item"><a href="auto-complete.html">Auto-complete</a></li><li class="nav-item"><a href="calendar.html">Calendar</a></li><li class="nav-item"><a href="slider-bar.html">Slide-bar</a></li></ul></li></ul></div><div class="col-10 col-ml-auto px-2"><div class="p-4"><h1 class="text-center mb-4">Auto-complete</h1><h3>Description</h3><p>This component will be useful to show hints while typing something in the input</p><h3 class="mt-5">Autocomplete data</h3><p>To create <code>autocomplete</code> input widget just paste following code as is</p><pre class="code" data-lang="HTML"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-autocomplete"</span> <span class="hljs-attr">data-autocomplete</span>=<span class="hljs-string">'["First example", "Second example"]'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-autocomplete-input form-input"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-input"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Typing here..."</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre><h5>Result</h5><div class="form-autocomplete" data-autocomplete="[&quot;First example&quot;, &quot;Second example&quot;]"><div class="form-autocomplete-input form-input"><input class="form-input" type="text" placeholder="Typing here..."></div></div><h3 class="mt-5">Other options</h3><p>You may use different values which come from Javascript function or load from API</p><p>For example, the following code loads auto-complete options from a function</p><pre class="code" data-lang="HTML"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-autocomplete"</span> <span class="hljs-attr">data-autocomplete</span>=<span class="hljs-string">'loadData'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-autocomplete-input form-input"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-input"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Typing here..."</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre><pre class="code" data-lang="JS"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadData</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> [<span class="hljs-string">'First value'</span>, <span class="hljs-string">'Second value'</span>, <span class="hljs-string">'Third value'</span>];
+}
+</code></pre><h5>Result</h5><div class="form-autocomplete" data-autocomplete="loadData"><div class="form-autocomplete-input form-input"><input class="form-input" type="text" placeholder="Typing here..."></div></div><p class="mt-5">The following code loads auto-complete options from an API</p><pre class="code" data-lang="HTML"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-autocomplete"</span> <span class="hljs-attr">data-autocomplete</span>=<span class="hljs-string">'loadDataJson'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-autocomplete-input form-input"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-input"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Typing here..."</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre><pre class="code" data-lang="JS"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loadDataJson</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> fetch(<span class="hljs-string">'https://jsonplaceholder.typicode.com/users'</span>)
+        .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+            <span class="hljs-keyword">return</span> response.json();
+        })
+        .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">users</span>) </span>{
+            users = users.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">user</span>) </span>{
+                <span class="hljs-keyword">return</span> user.name;
+            });
+
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(users);
+        });
+}
+</code></pre><h5>Result</h5><div class="form-autocomplete" data-autocomplete="loadDataJson"><div class="form-autocomplete-input form-input"><input class="form-input" type="text" placeholder="Typing here..."></div></div><p class="mt-5">The following code loads auto-complete options from an API after input value changed</p><pre class="code" data-lang="HTML"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-autocomplete"</span> <span class="hljs-attr">data-autocomplete</span> <span class="hljs-attr">data-onchange</span>=<span class="hljs-string">'searchData'</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-autocomplete-input form-input"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-input"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Typing here..."</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre><pre class="code" data-lang="JS"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">searchData</span>(<span class="hljs-params">query, item</span>) </span>{
+    fetch(<span class="hljs-string">'https://jsonplaceholder.typicode.com/users'</span>)
+        .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+            <span class="hljs-keyword">return</span> response.json();
+        })
+        .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">users</span>) </span>{
+            users = users.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">user</span>) </span>{
+                <span class="hljs-keyword">return</span> user.name;
+            });
+
+            users.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">user</span>) </span>{
+                <span class="hljs-keyword">return</span> user.match(
+                    <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">`<span class="hljs-subst">${query}</span>`</span>, <span class="hljs-string">'gui'</span>)
+                );
+            });
+
+            item.options = users;
+            item.refresh();
+        });
+}
+</code></pre><h5>Result</h5><div class="form-autocomplete" data-autocomplete data-onchange="searchData"><div class="form-autocomplete-input form-input"><input class="form-input" type="text" placeholder="Typing here..."></div></div><div class="hero"></div><script>function loadData() {
+    return ['First value', 'Second value', 'Third value'];
+}
+
+function loadDataJson() {
+    return fetch('https://jsonplaceholder.typicode.com/users')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (users) {
+            users = users.map(function (user) {
+                return user.name;
+            });
+
+            return Promise.resolve(users);
+        });
+}
+
+function searchData(query, item) {
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (users) {
+            users = users.map(function (user) {
+                return user.name;
+            });
+
+            users.filter(function (user) {
+                return user.match(
+                    new RegExp(`${query}`, 'gui')
+                );
+            });
+
+            item.options = users;
+            item.refresh();
+        });
+}</script></div></div></div></div><script src="assets/docs.js"></script></body></html>

@@ -87,9 +87,11 @@ block content
     h6 #[code instance.delete(value)]
     p Removes a chip by value
 
-    pre.mb-5.code(data-lang="JS")
+    pre.code(data-lang="JS")
         code
             :highlight(lang='javascript')
                 let chip = Spectre.Chips.get('#selector');
 
                 chip.delete('old chip value');
+
+    .hero

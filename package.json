@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/manchenkoff/spectre.js/issues"
   },
-  "homepage": "https://github.com/manchenkoff/spectre.js#readme",
+  "homepage": "https://manchenkoff.github.io/spectre.js/",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.4",

@@ -4,7 +4,8 @@
  * manchenkoff.me © 2019
  */
 
-@import "../../node_modules/spectre.css/src/spectre";
+@import "~spectre.css/src/spectre";
+@import "~spectre.css/src/spectre-exp";
 
 @include margin-variant(3, $unit-4);
 @include margin-variant(4, $unit-8);

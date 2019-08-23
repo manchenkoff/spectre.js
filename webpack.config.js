@@ -80,7 +80,6 @@ module.exports = (env, argv) => {
                     filename: `../docs/${page}.html`,
                     template: `../pug/pages/${page}.pug`,
                     inject: false,
-                    minify: false,
                 })
             }),
         ],

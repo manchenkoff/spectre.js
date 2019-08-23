@@ -1,6 +1,172 @@
 extends ../layout/main
 
 block content
-    ul.my-5
-        li показ подсказок по мере заполнения
-        li загрузка данных из JSON
+    h1.text-center.mb-4 Auto-complete
+
+    h3 Description
+
+    p This component will be useful to show hints while typing something in the input
+
+    h3.mt-5 Autocomplete data
+
+    p To create #[code autocomplete] input widget just paste following code as is
+
+    pre.code(data-lang='HTML')
+        code
+            :highlight(lang='html')
+                <div class="form-autocomplete" data-autocomplete='["First example", "Second example"]'>
+                    <div class="form-autocomplete-input form-input">
+                        <input class="form-input" type="text" placeholder="Typing here...">
+                    </div>
+                </div>
+
+    h5 Result
+
+    .form-autocomplete(data-autocomplete='["First example", "Second example"]')
+        .form-autocomplete-input.form-input
+            input.form-input(type='text' placeholder='Typing here...')
+
+    h3.mt-5 Other options
+
+    p You may use different values which come from Javascript function or load from API
+
+    p For example, the following code loads auto-complete options from a function
+
+    pre.code(data-lang='HTML')
+        code
+            :highlight(lang='html')
+                <div class="form-autocomplete" data-autocomplete='loadData'>
+                    <div class="form-autocomplete-input form-input">
+                        <input class="form-input" type="text" placeholder="Typing here...">
+                    </div>
+                </div>
+
+    pre.code(data-lang='JS')
+        code
+            :highlight(lang='javascript')
+                function loadData() {
+                    return ['First value', 'Second value', 'Third value'];
+                }
+
+    h5 Result
+
+    .form-autocomplete(data-autocomplete='loadData')
+        .form-autocomplete-input.form-input
+            input.form-input(type='text' placeholder='Typing here...')
+
+    p.mt-5 The following code loads auto-complete options from an API
+
+    pre.code(data-lang='HTML')
+        code
+            :highlight(lang='html')
+                <div class="form-autocomplete" data-autocomplete='loadDataJson'>
+                    <div class="form-autocomplete-input form-input">
+                        <input class="form-input" type="text" placeholder="Typing here...">
+                    </div>
+                </div>
+
+    pre.code(data-lang='JS')
+        code
+            :highlight(lang='javascript')
+                function loadDataJson() {
+                    return fetch('https://jsonplaceholder.typicode.com/users')
+                        .then(function (response) {
+                            return response.json();
+                        })
+                        .then(function (users) {
+                            users = users.map(function (user) {
+                                return user.name;
+                            });
+
+                            return Promise.resolve(users);
+                        });
+                }
+
+    h5 Result
+
+    .form-autocomplete(data-autocomplete='loadDataJson')
+        .form-autocomplete-input.form-input
+            input.form-input(type='text' placeholder='Typing here...')
+
+    p.mt-5 The following code loads auto-complete options from an API after input value changed
+
+    pre.code(data-lang='HTML')
+        code
+            :highlight(lang='html')
+                <div class="form-autocomplete" data-autocomplete data-onchange='searchData'>
+                    <div class="form-autocomplete-input form-input">
+                        <input class="form-input" type="text" placeholder="Typing here...">
+                    </div>
+                </div>
+
+    pre.code(data-lang='JS')
+        code
+            :highlight(lang='javascript')
+                function searchData(query, item) {
+                    fetch('https://jsonplaceholder.typicode.com/users')
+                        .then(function (response) {
+                            return response.json();
+                        })
+                        .then(function (users) {
+                            users = users.map(function (user) {
+                                return user.name;
+                            });
+
+                            users.filter(function (user) {
+                                return user.match(
+                                    new RegExp(`${query}`, 'gui')
+                                );
+                            });
+
+                            item.options = users;
+                            item.refresh();
+                        });
+                }
+
+    h5 Result
+
+    .form-autocomplete(data-autocomplete data-onchange='searchData')
+        .form-autocomplete-input.form-input
+            input.form-input(type='text' placeholder='Typing here...')
+
+    .hero
+
+    script.
+        function loadData() {
+            return ['First value', 'Second value', 'Third value'];
+        }
+
+        function loadDataJson() {
+            return fetch('https://jsonplaceholder.typicode.com/users')
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (users) {
+                    users = users.map(function (user) {
+                        return user.name;
+                    });
+
+                    return Promise.resolve(users);
+                });
+        }
+
+        function searchData(query, item) {
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (users) {
+                    users = users.map(function (user) {
+                        return user.name;
+                    });
+
+                    users.filter(function (user) {
+                        return user.match(
+                            new RegExp(`${query}`, 'gui')
+                        );
+                    });
+
+                    item.options = users;
+                    item.refresh();
+                });
+        }
