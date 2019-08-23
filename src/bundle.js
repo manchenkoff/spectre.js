@@ -4,31 +4,14 @@
  * manchenkoff.me © 2019
  */
 
-// import and register components
-import Autocomplete from './widgets/autocomplete'
-import Calendar from './widgets/calendar'
-import Chips from './widgets/chips'
-import Slider from './widgets/slider'
-import Tabs from './widgets/tabs'
-import Toast from './widgets/toast'
+import Spectre from './spectre';
 
-window.Spectre = {
-    Autocomplete,
-    Calendar,
-    Chips,
-    Slider,
-    Tabs,
-    Toast
-};
+window.onload = () => {
+    window.Spectre = Spectre;
 
-function init() {
     Object
         .getOwnPropertyNames(Spectre)
         .forEach((className) => {
             Spectre[className].register();
         });
-}
-
-window.onload = () => {
-    init();
 };

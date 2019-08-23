@@ -3,70 +3,70 @@ extends ../layout/main
 block content
     h1.text-center.mb-4 Tabs
 
-        h3 Description
+    h3 Description
 
-        p This page contains few examples of how to use Tabs component
+    p This page contains few examples of how to use Tabs component
 
-        h3.mt-5 Simple tabs
+    h3.mt-5 Simple tabs
 
-        p To create #[code tabs] just paste following code as is
+    p To create #[code tabs] just paste following code as is
 
-        pre.code(data-lang='HTML')
-            code
-                :highlight(lang='html')
-                    <ul class="tab tab-block" data-tabs="tabs1">
-                        <li class="tab-item active">
-                            <a href="#">Music</a>
-                        </li>
-                        <li class="tab-item">
-                            <a href="#">Playlists</a>
-                        </li>
-                        <li class="tab-item">
-                            <a href="#">Radio</a>
-                        </li>
-                        <li class="tab-item">
-                            <a href="#">Connect</a>
-                        </li>
-                    </ul>
+    pre.code(data-lang='HTML')
+        code
+            :highlight(lang='html')
+                <ul class="tab tab-block" data-tabs="tabs1">
+                    <li class="tab-item active">
+                        <a href="#">Music</a>
+                    </li>
+                    <li class="tab-item">
+                        <a href="#">Playlists</a>
+                    </li>
+                    <li class="tab-item">
+                        <a href="#">Radio</a>
+                    </li>
+                    <li class="tab-item">
+                        <a href="#">Connect</a>
+                    </li>
+                </ul>
 
-                    <ul data-tabs-content="tabs1">
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, sapiente.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
-                        <li>Lorem ipsum dolor sit.</li>
-                    </ul>
+                <ul data-tabs-content="tabs1">
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, sapiente.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
+                    <li>Lorem ipsum dolor sit.</li>
+                </ul>
 
-        h5 Result
+    h5 Result
 
-        div(style='height: 400px')
-            ul.tab.tab-block(data-tabs='tabs1')
-                li.tab-item.active
-                    a(href='#') Music
-                li.tab-item
-                    a(href='#') Playlist
-                li.tab-item
-                    a(href='#') Radio
-                li.tab-item
-                    a(href='#') Connect
+    div(style='height: 400px')
+        ul.tab.tab-block(data-tabs='tabs1')
+            li.tab-item.active
+                a(href='#') Music
+            li.tab-item
+                a(href='#') Playlist
+            li.tab-item
+                a(href='#') Radio
+            li.tab-item
+                a(href='#') Connect
 
-            ul(data-tabs-content='tabs1')
-                li Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque deleniti distinctio eligendi facilis minima molestias necessitatibus, numquam rem unde voluptas. Aliquam doloremque earum perspiciatis, possimus quasi quos repudiandae soluta voluptatibus.
-                li Lorem ipsum dolor sit amet.
-                li Lorem ipsum dolor sit amet, consectetur adipisicing.
-                li Lorem ipsum dolor sit.
+        ul(data-tabs-content='tabs1')
+            li Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque deleniti distinctio eligendi facilis minima molestias necessitatibus, numquam rem unde voluptas. Aliquam doloremque earum perspiciatis, possimus quasi quos repudiandae soluta voluptatibus.
+            li Lorem ipsum dolor sit amet.
+            li Lorem ipsum dolor sit amet, consectetur adipisicing.
+            li Lorem ipsum dolor sit.
 
-            ul.tab.tab-block(data-tabs='tabs2')
-                li.tab-item.active
-                    a(href='#') John
-                li.tab-item
-                    a(href='#') Artur
-                li.tab-item
-                    a(href='#') Peter
-                li.tab-item
-                    a(href='#') Kate
+        ul.tab.tab-block(data-tabs='tabs2')
+            li.tab-item.active
+                a(href='#') John
+            li.tab-item
+                a(href='#') Artur
+            li.tab-item
+                a(href='#') Peter
+            li.tab-item
+                a(href='#') Kate
 
-            ul(data-tabs-content='tabs2')
-                li John tab content
-                li Artur tab content
-                li Peter tab content
-                li Kate tab content
+        ul(data-tabs-content='tabs2')
+            li John tab content
+            li Artur tab content
+            li Peter tab content
+            li Kate tab content

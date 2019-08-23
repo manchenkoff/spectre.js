@@ -99,7 +99,7 @@ export default class Toast extends Widget {
 
         // set up content text
         let content = document.createElement('p');
-        content.innerText = config.message;
+        content.innerHTML = config.message;
         toast.appendChild(content);
 
         // function to close toast by click on the button

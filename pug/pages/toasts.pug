@@ -47,12 +47,12 @@ block content
         code
             :highlight(lang='javascript')
                 Spectre.Toast.error('Some error')
-                Spectre.Toast.success('All is fine')
+                Spectre.Toast.success('All <em>is</em> fine')
                 Spectre.Toast.warning('Warning content')
 
     .btn-group
         button.btn.btn-error(onclick="Spectre.Toast.error('Some error')") Error
-        button.btn.btn-success(onclick="Spectre.Toast.success('All is fine')") Success
+        button.btn.btn-success(onclick="Spectre.Toast.success('All <em>is</em> fine')") Success
         button.btn.btn-primary(onclick="Spectre.Toast.warning('Warning content')") Warning
 
     h3.mt-5 Configuration

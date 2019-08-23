@@ -20,7 +20,6 @@ export default class Widget {
 
         // call implemented methods
         this.init();
-        this.log();
     }
 
     /**
@@ -33,7 +32,11 @@ export default class Widget {
         data.forEach(
             (key) => {
                 if (key in this.element.dataset) {
-                    params[key] = JSON.parse(this.element.dataset[key]);
+                    try {
+                        params[key] = JSON.parse(this.element.dataset[key]);
+                    } catch (e) {
+                        params[key] = this.element.dataset[key];
+                    }
                 }
             }
         );
