@@ -38,7 +38,7 @@
     "imagemin-webpack-plugin": "^2.4.2",
     "jstransformer-highlight": "^2.0.0",
     "mini-css-extract-plugin": "^0.7.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "pug": "^2.0.4",
     "pug-loader": "^2.4.0",
